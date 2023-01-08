@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FootballThrowFast SSC013003.mp3-421869ce5617b8751778225da09a51ed.mp3str"
+
+[deps]
+
+source_file="res://Music/FootballThrowFast SSC013003.mp3"
+dest_files=[ "res://.import/FootballThrowFast SSC013003.mp3-421869ce5617b8751778225da09a51ed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

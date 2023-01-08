@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ES_Anchor Throw Lake 2 - SFX Producer.mp3-eb8194941797b29537347164f2b2c58a.mp3str"
+
+[deps]
+
+source_file="res://Music/ES_Anchor Throw Lake 2 - SFX Producer.mp3"
+dest_files=[ "res://.import/ES_Anchor Throw Lake 2 - SFX Producer.mp3-eb8194941797b29537347164f2b2c58a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

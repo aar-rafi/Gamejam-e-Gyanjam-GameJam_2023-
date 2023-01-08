@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ES_Vanish Whoosh Appear 1 - SFX Producer.mp3-e8893b6c77e360cb859f1d9fe49de98e.mp3str"
+
+[deps]
+
+source_file="res://Music/ES_Vanish Whoosh Appear 1 - SFX Producer.mp3"
+dest_files=[ "res://.import/ES_Vanish Whoosh Appear 1 - SFX Producer.mp3-e8893b6c77e360cb859f1d9fe49de98e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

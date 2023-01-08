@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sliding-door-6758.mp3-205ff5d2218edab1f06d71b21aa1809c.mp3str"
+
+[deps]
+
+source_file="res://Music/sliding-door-6758.mp3"
+dest_files=[ "res://.import/sliding-door-6758.mp3-205ff5d2218edab1f06d71b21aa1809c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
