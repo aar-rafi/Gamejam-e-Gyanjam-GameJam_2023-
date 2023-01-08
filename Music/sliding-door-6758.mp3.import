@@ -11,5 +11,5 @@ dest_files=[ "res://.import/sliding-door-6758.mp3-205ff5d2218edab1f06d71b21aa180
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
