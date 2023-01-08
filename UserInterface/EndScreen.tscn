@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://start-assets/start-assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/Sprite-0005.png" type="Texture" id=2]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UserInterface/ChangeSceneBT.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UserInterface/Quit_bt.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UserInterface/EndScreen.gd" type="Script" id=6]
+[ext_resource path="res://UserInterface/AnimatedSprite.gd" type="Script" id=7]
+[ext_resource path="res://assets/photo_6183691070521587485_y.jpg" type="Texture" id=8]
+[ext_resource path="res://assets/banner.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 34, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 68, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 102, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 136, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 170, 0, 34, 40 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 2
+
+[node name="Banner" type="Sprite" parent="."]
+position = Vector2( 512, 237.41 )
+scale = Vector2( 1.22687, 1.13881 )
+texture = ExtResource( 9 )
+
+[node name="Title" parent="." instance=ExtResource( 3 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -237.0
+margin_top = -98.5895
+margin_right = 240.0
+margin_bottom = -47.5895
+text = "Congratulations"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -152.5
+margin_top = 90.4105
+margin_right = 146.5
+margin_bottom = 228.41
+
+[node name="start" parent="Menu" instance=ExtResource( 4 )]
+margin_right = 299.0
+margin_bottom = 66.0
+text = "Play Again"
+next_scene_path = "res://all/levels/level_0.tscn"
+
+[node name="quit" parent="Menu" instance=ExtResource( 5 )]
+margin_top = 70.0
+margin_right = 299.0
+margin_bottom = 137.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 513, 115 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 3
+playing = true
+script = ExtResource( 7 )

@@ -1,0 +1,95 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/photo_6183691070521587485_y.jpg" type="Texture" id=1]
+[ext_resource path="res://UserInterface/ChangeSceneBT.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UserInterface/Quit_bt.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://start-assets/start-assets/ui_theme.tres" type="Theme" id=5]
+[ext_resource path="res://start-assets/start-assets/menu.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/banner.png" type="Texture" id=7]
+[ext_resource path="res://UserInterface/AnimatedSprite.gd" type="Script" id=8]
+[ext_resource path="res://assets/Sprite-0005.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 9 )
+region = Rect2( 34, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 9 )
+region = Rect2( 68, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 9 )
+region = Rect2( 102, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 9 )
+region = Rect2( 136, 0, 34, 40 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 9 )
+region = Rect2( 170, 0, 34, 40 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
+
+[node name="MainScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Banner" type="Sprite" parent="."]
+position = Vector2( 503, 271 )
+scale = Vector2( 1.31343, 1.15333 )
+texture = ExtResource( 7 )
+
+[node name="Title" parent="." instance=ExtResource( 4 )]
+margin_left = -129.0
+margin_top = 235.0
+margin_right = 119.0
+margin_bottom = 280.0
+text = "Chef Escape"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 385.0
+margin_top = 342.0
+margin_right = 623.0
+margin_bottom = 480.0
+
+[node name="start" parent="VBoxContainer" instance=ExtResource( 2 )]
+next_scene_path = "res://all/levels/level_0.tscn"
+
+[node name="quit" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 71.0
+margin_bottom = 138.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 2.229
+autoplay = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 489, 145 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 5
+playing = true
+script = ExtResource( 8 )

@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://start-assets/start-assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UserInterface/ChangeSceneBT.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UserInterface/Quit_bt.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UserInterface/PauseMenu.gd" type="Script" id=5]
+[ext_resource path="res://UserInterface/RetryBT.tscn" type="PackedScene" id=6]
+[ext_resource path="res://start-assets/start-assets/loading.wav" type="AudioStream" id=7]
+[ext_resource path="res://UserInterface/Resume.gd" type="Script" id=8]
+[ext_resource path="res://UserInterface/Resume.tscn" type="PackedScene" id=9]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -155.0
+margin_top = 34.0
+margin_right = -18.0
+margin_bottom = 65.0
+text = "SCORE: %s"
+align = 2
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.027451, 0, 0, 0.231373 )
+
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 2 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -161.0
+margin_top = -186.0
+margin_right = 167.0
+margin_bottom = -126.0
+text = "PAUSED"
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -186.0
+margin_top = -50.0
+margin_right = 196.0
+margin_bottom = 223.0
+
+[node name="Resume" parent="PauseOverlay/PauseMenu" instance=ExtResource( 9 )]
+margin_right = 382.0
+margin_bottom = 65.0
+size_flags_vertical = 3
+text = "Resume"
+script = ExtResource( 8 )
+
+[node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 6 )]
+margin_top = 69.0
+margin_right = 382.0
+margin_bottom = 134.0
+
+[node name="ChangeSceneBT" parent="PauseOverlay/PauseMenu" instance=ExtResource( 3 )]
+margin_top = 138.0
+margin_right = 382.0
+margin_bottom = 203.0
+text = "Main Screen"
+next_scene_path = "res://src/UserInterface/MainScreen.tscn"
+
+[node name="quit" parent="PauseOverlay/PauseMenu" instance=ExtResource( 4 )]
+margin_top = 207.0
+margin_right = 382.0
+margin_bottom = 273.0
+
+[node name="bgSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 0.743
+
+[connection signal="button_up" from="PauseOverlay/PauseMenu/Resume" to="PauseOverlay/PauseMenu/Resume" method="_on_button_up"]

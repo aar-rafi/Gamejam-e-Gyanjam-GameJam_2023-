@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends Button
+
+
+export(String, FILE) var next_scene_path: = \"\"
+
+
+
+func _get_configuration_warning()-> String:
+	return \"next_scene_not_set\" if next_scene_path == \"\" else \"\"
+
+
+func _on_ChangeSceneBT_button_up():
+	var scene_tree: = get_tree()
+	scene_tree.change_scene(next_scene_path)
+	scene_tree.paused = false
+	PlayerData.death = 0
+"
+
+[node name="ChangeSceneBT" type="Button"]
+margin_right = 238.0
+margin_bottom = 67.0
+size_flags_vertical = 3
+text = "Play"
+script = SubResource( 1 )
+
+[connection signal="button_up" from="." to="." method="_on_ChangeSceneBT_button_up"]
