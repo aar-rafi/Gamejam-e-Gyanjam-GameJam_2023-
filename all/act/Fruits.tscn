@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://all/act/Fruits.gd" type="Script" id=1]
+[ext_resource path="res://assets/effect_4.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 11.0
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0.0047619, 1 ), 0.0, -0.109091, 0, 0, Vector2( 1, 0 ), -3.01049, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=7]
+colors = PoolColorArray( 0.598145, 0.0794411, 0.0794411, 1, 1, 1, 1, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=9]
+blend_mode = 1
+
+[sub_resource type="Curve" id=11]
+min_value = -1.0
+_data = [ Vector2( 0, 0.602273 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 355.76
+angular_velocity_random = 0.04
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 237.2
+scale = 1.5
+scale_random = 1.0
+color = Color( 0.0392157, 0.509804, 0.372549, 1 )
+hue_variation = 0.07
+hue_variation_random = 0.02
+hue_variation_curve = SubResource( 12 )
+anim_speed = 1.27
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 12.5
+
+[node name="Fruits" type="KinematicBody2D"]
+scale = Vector2( 0.8, 0.8 )
+z_index = 9
+collision_layer = 4
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+z_index = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 5.0
+width_curve = SubResource( 6 )
+default_color = Color( 1, 0.4, 0.721569, 1 )
+gradient = SubResource( 7 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 9 )
+position = Vector2( 0, 1 )
+scale = Vector2( 1.5, 1.5 )
+amount = 13
+lifetime = 4.0
+speed_scale = 1.5
+explosiveness = 0.81
+process_material = SubResource( 10 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D_area" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 13 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
