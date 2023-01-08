@@ -1,0 +1,245 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://all/levels/level_3_tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/cursor.png" type="Texture" id=2]
+[ext_resource path="res://assets/gate.png" type="Texture" id=3]
+[ext_resource path="res://all/act/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/keyboard-key-e.png" type="Texture" id=5]
+[ext_resource path="res://assets/arrows.png" type="Texture" id=6]
+[ext_resource path="res://assets/letter-r-key-on-keyboard.png" type="Texture" id=7]
+[ext_resource path="res://assets/keyboard-button.png" type="Texture" id=8]
+[ext_resource path="res://assets/letter-q-key-on-keyboard.png" type="Texture" id=9]
+[ext_resource path="res://all/act/Chef.tscn" type="PackedScene" id=10]
+[ext_resource path="res://all/act/Fruits.tscn" type="PackedScene" id=11]
+[ext_resource path="res://all/levels/level_1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/key-p-of-a-keyboard.png" type="Texture" id=13]
+[ext_resource path="res://Music/let-the-mystery-unfold-122118.mp3" type="AudioStream" id=16]
+[ext_resource path="res://all/ui/food_bar.tscn" type="PackedScene" id=17]
+[ext_resource path="res://UserInterface/PauseMenu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Water/WaterBody.tscn" type="PackedScene" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 70.5, 35.5 )
+
+[node name="level_0" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 62, 2, 0, 65598, 2, 0, 131072, 2, 0, 196670, 2, 0, 262144, 2, 0, 327742, 2, 0, 393216, 2, 0, 458814, 2, 0, 524288, 2, 0, 524290, 1, 0, 524291, 1, 2, 524292, 1, 2, 524293, 1, 2, 524294, 1, 4, 524295, 1, 0, 589826, 1, 131072, 589827, 1, 131074, 589828, 1, 393222, 589829, 1, 393222, 589830, 1, 393220, 589831, 1, 131076, 589886, 2, 0, 655360, 2, 0, 655362, 1, 131072, 655363, 1, 393220, 655364, 1, 131074, 655365, 1, 393222, 655366, 1, 131074, 655367, 1, 131076, 720898, 1, 262144, 720899, 1, 262146, 720900, 1, 262146, 720901, 1, 262146, 720902, 1, 262146, 720903, 1, 262148, 720958, 2, 0, 786432, 2, 0, 852030, 2, 0, 917504, 2, 0, 917541, 1, 0, 917542, 1, 0, 917558, 1, 0, 917559, 1, 4, 917560, 1, 4, 917561, 1, 0, 917565, 1, 0, 983077, 1, 131072, 983078, 1, 131076, 983094, 1, 131072, 983095, 1, 393220, 983096, 1, 131074, 983097, 1, 0, 983098, 1, 2, 983099, 1, 2, 983100, 1, 4, 983101, 1, 0, 983102, 2, 0, 1048576, 2, 0, 1048613, 1, 131072, 1048614, 1, 0, 1048615, 1, 0, 1048630, 1, 131072, 1048631, 1, 393220, 1048632, 1, 393220, 1048633, 1, 393222, 1048634, 1, 131074, 1048635, 1, 393222, 1048636, 1, 131074, 1048637, 1, 131076, 1114112, 2, 0, 1114149, 1, 131072, 1114150, 1, 393220, 1114151, 1, 131076, 1114166, 1, 131072, 1114167, 1, 393222, 1114168, 1, 131074, 1114169, 1, 393220, 1114170, 1, 393222, 1114171, 1, 131074, 1114172, 1, 131074, 1114173, 1, 131076, 1114174, 2, 0, 1179685, 1, 131072, 1179686, 1, 131074, 1179687, 1, 131076, 1179702, 1, 131072, 1179703, 1, 393220, 1179704, 1, 131074, 1179705, 1, 131074, 1179706, 1, 393220, 1179707, 1, 131074, 1179708, 1, 393222, 1179709, 1, 131076, 1245184, 2, 0, 1245221, 1, 131072, 1245222, 1, 393222, 1245223, 1, 131076, 1245238, 1, 131072, 1245239, 1, 393222, 1245240, 1, 131074, 1245241, 1, 393220, 1245242, 1, 131074, 1245243, 1, 393222, 1245244, 1, 393222, 1245245, 1, 131076, 1245246, 2, 0, 1310757, 1, 131072, 1310758, 1, 131074, 1310759, 1, 131076, 1310774, 1, 131072, 1310775, 1, 131074, 1310776, 1, 393222, 1310777, 1, 393222, 1310778, 1, 393222, 1310779, 1, 393220, 1310780, 1, 131074, 1310781, 1, 131076, 1376256, 2, 0, 1376293, 1, 131072, 1376294, 1, 0, 1376295, 1, 262148, 1376310, 1, 131072, 1376311, 1, 131074, 1376312, 1, 393222, 1376313, 1, 131074, 1376314, 1, 393222, 1376315, 1, 393220, 1376316, 1, 393222, 1376317, 1, 131076, 1376318, 2, 0, 1441829, 1, 131072, 1441830, 1, 131076, 1441846, 1, 131072, 1441847, 1, 393222, 1441848, 1, 393222, 1441849, 1, 131074, 1441850, 1, 393222, 1441851, 1, 393220, 1441852, 1, 393220, 1441853, 1, 131076, 1507328, 2, 0, 1507365, 1, 131072, 1507366, 1, 131076, 1507382, 1, 131072, 1507383, 1, 393220, 1507384, 1, 393222, 1507385, 1, 131074, 1507386, 1, 131074, 1507387, 1, 393220, 1507388, 1, 393222, 1507389, 1, 131076, 1507390, 2, 0, 1572901, 1, 131072, 1572902, 1, 131076, 1572918, 1, 131072, 1572919, 1, 131074, 1572920, 1, 131074, 1572921, 1, 131074, 1572922, 1, 131074, 1572923, 1, 393222, 1572924, 1, 131074, 1572925, 1, 131076, 1638400, 2, 0, 1638437, 1, 131072, 1638438, 1, 131076, 1638454, 1, 131072, 1638455, 1, 131074, 1638456, 1, 131074, 1638457, 1, 131074, 1638458, 1, 131074, 1638459, 1, 131074, 1638460, 1, 393220, 1638461, 1, 0, 1638462, 1, 2, 1638463, 1, 0, 1703973, 1, 131072, 1703974, 1, 131076, 1703990, 1, 131072, 1703991, 1, 393222, 1703992, 1, 393222, 1703993, 1, 131074, 1703994, 1, 131074, 1703995, 1, 393220, 1703996, 1, 393220, 1703997, 1, 393222, 1703998, 1, 393220, 1703999, 1, 131076, 1769472, 2, 0, 1769509, 1, 131072, 1769510, 1, 0, 1769511, 1, 0, 1769526, 1, 131072, 1769527, 1, 393222, 1769528, 1, 131074, 1769529, 1, 393222, 1769530, 1, 131074, 1769531, 1, 131074, 1769532, 1, 393220, 1769533, 1, 131074, 1769534, 1, 393220, 1769535, 1, 131076, 1835033, 1, 0, 1835034, 1, 4, 1835035, 1, 2, 1835036, 1, 0, 1835045, 1, 131072, 1835046, 1, 393222, 1835047, 1, 131076, 1835062, 1, 131072, 1835063, 1, 393222, 1835064, 1, 131074, 1835065, 1, 131074, 1835066, 1, 393220, 1835067, 1, 393220, 1835068, 1, 131074, 1835069, 1, 393220, 1835070, 1, 393222, 1835071, 1, 131076, 1900544, 2, 0, 1900557, 1, 0, 1900558, 1, 2, 1900559, 1, 4, 1900560, 1, 2, 1900561, 1, 0, 1900569, 1, 131072, 1900570, 1, 393220, 1900571, 1, 131074, 1900572, 1, 131076, 1900581, 1, 131072, 1900582, 1, 393220, 1900583, 1, 131076, 1900598, 1, 131072, 1900599, 1, 131074, 1900600, 1, 393222, 1900601, 1, 131074, 1900602, 1, 393220, 1900603, 1, 393222, 1900604, 1, 131074, 1900605, 1, 131074, 1900606, 1, 393220, 1900607, 1, 131076, 1966093, 1, 131072, 1966094, 1, 393220, 1966095, 1, 393220, 1966096, 1, 393220, 1966097, 1, 131076, 1966105, 1, 131072, 1966106, 1, 393220, 1966107, 1, 393220, 1966108, 1, 131076, 1966117, 1, 131072, 1966118, 1, 0, 1966119, 1, 262148, 1966134, 1, 131072, 1966135, 1, 131074, 1966136, 1, 393222, 1966137, 1, 131074, 1966138, 1, 393220, 1966139, 1, 393220, 1966140, 1, 393222, 1966141, 1, 0, 1966142, 1, 262146, 1966143, 1, 262148, 2031616, 2, 0, 2031629, 1, 131072, 2031630, 1, 131074, 2031631, 1, 393220, 2031632, 1, 393220, 2031633, 1, 131076, 2031641, 1, 131072, 2031642, 1, 393222, 2031643, 1, 393222, 2031644, 1, 131076, 2031653, 1, 131072, 2031654, 1, 131076, 2031670, 1, 131072, 2031671, 1, 131074, 2031672, 1, 131074, 2031673, 1, 131074, 2031674, 1, 393222, 2031675, 1, 131074, 2031676, 1, 393222, 2031677, 1, 131076, 2031678, 2, 0, 2097165, 1, 131072, 2097166, 1, 393220, 2097167, 1, 393222, 2097168, 1, 393220, 2097169, 1, 131076, 2097177, 1, 131072, 2097178, 1, 393220, 2097179, 1, 393222, 2097180, 1, 131076, 2097188, 1, 0, 2097189, 1, 0, 2097190, 1, 131076, 2097206, 1, 131072, 2097207, 1, 131074, 2097208, 1, 393222, 2097209, 1, 131074, 2097210, 1, 131074, 2097211, 1, 393222, 2097212, 1, 393222, 2097213, 1, 131076, 2162688, 2, 0, 2162701, 1, 131072, 2162702, 1, 131074, 2162703, 1, 393220, 2162704, 1, 393220, 2162705, 1, 131076, 2162713, 1, 131072, 2162714, 1, 131074, 2162715, 1, 131074, 2162716, 1, 131076, 2162724, 1, 131072, 2162725, 1, 393222, 2162726, 1, 131076, 2162742, 1, 131072, 2162743, 1, 393222, 2162744, 1, 131074, 2162745, 1, 131074, 2162746, 1, 131074, 2162747, 1, 393220, 2162748, 1, 393222, 2162749, 1, 131076, 2162750, 2, 0, 2228237, 1, 131072, 2228238, 1, 131074, 2228239, 1, 393220, 2228240, 1, 393222, 2228241, 1, 131076, 2228249, 1, 131072, 2228250, 1, 131074, 2228251, 1, 131074, 2228252, 1, 131076, 2228260, 1, 262144, 2228261, 1, 262146, 2228262, 1, 262148, 2228278, 1, 262144, 2228279, 1, 262146, 2228280, 1, 262146, 2228281, 1, 262146, 2228282, 1, 262146, 2228283, 1, 262146, 2228284, 1, 262146, 2228285, 1, 262148, 2293760, 2, 0, 2293762, 2, 0, 2293764, 2, 0, 2293766, 2, 0, 2293768, 2, 0, 2293770, 2, 0, 2293772, 2, 0, 2293773, 1, 131072, 2293774, 1, 393220, 2293775, 1, 393220, 2293776, 1, 393222, 2293777, 1, 131076, 2293778, 2, 0, 2293780, 2, 0, 2293782, 2, 0, 2293784, 2, 0, 2293785, 1, 131072, 2293786, 1, 393220, 2293787, 1, 131074, 2293788, 1, 0, 2293789, 1, 0, 2293790, 2, 0, 2293792, 2, 0, 2293794, 2, 0, 2293796, 2, 0, 2293798, 2, 0, 2293800, 2, 0, 2293802, 2, 0, 2293804, 2, 0, 2293806, 2, 0, 2293808, 2, 0, 2293810, 2, 0, 2293812, 2, 0, 2293814, 2, 0, 2293816, 2, 0, 2293818, 2, 0, 2293820, 2, 0, 2293822, 2, 0, 2359309, 1, 262144, 2359310, 1, 262146, 2359311, 1, 262146, 2359312, 1, 262146, 2359313, 1, 262148, 2359321, 1, 262144, 2359322, 1, 262146, 2359323, 1, 262146, 2359324, 1, 262146, 2359325, 1, 262148, 2424832, 2, 0, 2555904, 2, 0 )
+
+[node name="Cursor" type="Sprite" parent="."]
+position = Vector2( 245, 279 )
+scale = Vector2( 0.129688, 0.129688 )
+texture = ExtResource( 2 )
+
+[node name="Cursor2" type="Sprite" parent="."]
+position = Vector2( 690, 345 )
+scale = Vector2( 0.129688, 0.129688 )
+texture = ExtResource( 2 )
+
+[node name="Chef" parent="." instance=ExtResource( 10 )]
+position = Vector2( 94, 75 )
+
+[node name="Keyboard-key-e" type="Sprite" parent="."]
+position = Vector2( 88, 420 )
+scale = Vector2( 0.671875, 0.671875 )
+texture = ExtResource( 5 )
+offset = Vector2( -10.4186, -8.93024 )
+
+[node name="Keyboard-key-e2" type="Sprite" parent="."]
+position = Vector2( 357, 415 )
+scale = Vector2( 0.671875, 0.671875 )
+texture = ExtResource( 5 )
+offset = Vector2( -10.4186, -8.93024 )
+
+[node name="Keyboard-button" type="Sprite" parent="."]
+position = Vector2( 284, 83 )
+texture = ExtResource( 8 )
+
+[node name="Letter-q-key-on-keyboard" type="Sprite" parent="."]
+position = Vector2( 178, 413 )
+scale = Vector2( 0.648438, 0.648438 )
+texture = ExtResource( 9 )
+
+[node name="Letter-r-key-on-keyboard" type="Sprite" parent="."]
+position = Vector2( 811, 175 )
+scale = Vector2( 0.6875, 0.6875 )
+texture = ExtResource( 7 )
+
+[node name="Arrows" type="Sprite" parent="."]
+position = Vector2( 207, 84 )
+scale = Vector2( 1.07812, 1.07812 )
+texture = ExtResource( 6 )
+
+[node name="Fruits" parent="." instance=ExtResource( 11 )]
+
+[node name="Portal2d" parent="." instance=ExtResource( 4 )]
+position = Vector2( 735, 562 )
+next_scene = ExtResource( 12 )
+
+[node name="Water_Float" type="StaticBody2D" parent="."]
+position = Vector2( 464, 458 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water_Float"]
+position = Vector2( 60.5, 69.5 )
+shape = SubResource( 1 )
+
+[node name="Water_Body" parent="." instance=ExtResource( 19 )]
+position = Vector2( 464, 458 )
+z_index = -1
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 197.0
+margin_top = 119.0
+margin_right = 251.0
+margin_bottom = 150.0
+rect_scale = Vector2( 2, 2 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "To Move
+"
+
+[node name="Label2" type="Label" parent="Control"]
+margin_left = 44.0
+margin_top = 345.0
+margin_right = 149.0
+margin_bottom = 393.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "To Activate
+Throw Trajectory
+"
+
+[node name="Label3" type="Label" parent="Control"]
+margin_left = 160.0
+margin_top = 347.0
+margin_right = 231.0
+margin_bottom = 395.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "To
+Throw
+"
+
+[node name="Label4" type="Label" parent="Control"]
+margin_left = 318.0
+margin_top = 338.0
+margin_right = 389.0
+margin_bottom = 386.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "To Load
+New Food
+"
+
+[node name="Label5" type="Label" parent="Control"]
+margin_left = 212.0
+margin_top = 232.0
+margin_right = 292.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Move Cursor
+To Aim
+"
+
+[node name="Label6" type="Label" parent="Control"]
+margin_left = 652.0
+margin_top = 274.0
+margin_right = 732.0
+margin_bottom = 322.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "To Aim
+Further 
+move cursor"
+
+[node name="Label7" type="Label" parent="Control"]
+margin_left = 766.0
+margin_top = 99.0
+margin_right = 848.0
+margin_bottom = 164.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "To Launch
+Parachute
+While Falling
+"
+
+[node name="Label8" type="Label" parent="Control"]
+margin_left = 396.0
+margin_top = 174.0
+margin_right = 544.0
+margin_bottom = 239.0
+rect_scale = Vector2( 1.2, 1.5 )
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Beware of sticky walls!!
+"
+
+[node name="Label9" type="Label" parent="Control"]
+margin_left = 359.0
+margin_top = 109.0
+margin_right = 416.0
+margin_bottom = 123.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "To Pause"
+
+[node name="Gate" type="Sprite" parent="."]
+position = Vector2( 73, 93 )
+scale = Vector2( 1.61111, 1.61111 )
+texture = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 30
+
+[node name="food_bar" parent="CanvasLayer" instance=ExtResource( 17 )]
+margin_left = 896.0
+margin_top = 9.0
+margin_right = 936.0
+margin_bottom = 49.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource( 18 )]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 3.0
+margin_bottom = 2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 150, 83 )
+stream = ExtResource( 16 )
+volume_db = 15.73
+autoplay = true
+area_mask = 0
+
+[node name="Key-p-of-a-keyboard" type="Sprite" parent="."]
+position = Vector2( 482, 113 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )

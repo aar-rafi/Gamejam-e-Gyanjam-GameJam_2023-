@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/magic-in-the-air-43177.mp3-1670599d57b34ac8555f5d9bf8a72325.mp3str"
+
+[deps]
+
+source_file="res://all/levels/magic-in-the-air-43177.mp3"
+dest_files=[ "res://.import/magic-in-the-air-43177.mp3-1670599d57b34ac8555f5d9bf8a72325.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
