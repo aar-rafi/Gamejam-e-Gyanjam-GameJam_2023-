@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/05_apple_pie.png" type="Texture" id=1]
+[ext_resource path="res://all/ui/food_bar.gd" type="Script" id=2]
+
+[node name="food_bar" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 98.0
+margin_bottom = 37.0
+texture = ExtResource( 1 )
+stretch_mode = 2
